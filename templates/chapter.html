@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>StudyShark - {{ chapter }}</title>
+</head>
+
+<body>
+
+    <h1>StudyShark 🦈</h1>
+
+    <h2>{{ subject }}</h2>
+
+    <h3>{{ chapter }}</h3>
+
+    <p>
+        Textbook questions and solutions for this chapter will appear here.
+    </p>
+    <h1>StudyShark 🦈</h1>
+
+<h2>{{ subject }}</h2>
+
+<h3>{{ chapter }}</h3>
+
+
+    <img src="{{ url_for('static', filename='images/default.png') }}"
+         alt="Relations and Functions"
+         width="600">
+
+
+</body>
+
+</html>

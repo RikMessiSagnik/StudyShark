@@ -1,0 +1,11 @@
+ {% for class_name, subjects in classes.items() %}
+    <h2>{{ class_name }}</h2>
+
+    {% for subject, chapters in subjects.items() %}
+        <h3>{{ subject }}</h3>
+
+        {% for chapter in chapters %}
+            <div>{{ chapter }}</div>
+        {% endfor %}
+        {% endfor %}
+    {% endfor %} 

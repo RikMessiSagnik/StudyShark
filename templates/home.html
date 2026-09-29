@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StudyShark</title>
+    <style>.chapter-card img {
+    width: 220px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+}</style>
+    <h1 style="
+    font-family: 'Poppins', sans-serif;
+    color: #2563EB;
+    font-size: 45px;
+    font-weight: 700;
+    text-align: center;
+">
+    StudyShark 🦈
+</h1>
+
+   #library-image {
+        width: 1000px;
+        height: 500px;
+        object-fit: cover;
+    }
+ </head>
+<div id="imageViewer" onclick="closeImage()">
+    <span onclick="closeImage()">✕</span>
+    <img id="fullImage" onclick="event.stopPropagation()">
+</div>
+
+<style>
+    #imageViewer {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 9999;
+        overflow: auto;
+        text-align: center;
+    }
+
+    #fullImage {
+        width: auto;
+        height: auto;
+        max-width: none;
+        max-height: none;
+        margin: 50px;
+    }
+
+    #imageViewer span {
+        position: fixed;
+        top: 15px;
+        right: 30px;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+        z-index: 10000;
+    }
+</style>
+
+<script>
+    function openImage(imageSource) {
+        document.getElementById("fullImage").src = imageSource;
+        document.getElementById("imageViewer").style.display = "block";
+    }
+
+    function closeImage() {
+        document.getElementById("imageViewer").style.display = "none";
+    }
+</script>
+<body> 
+    <div style="text-align: center;">
+    <h2 style="
+    font-family: 'Poppins', sans-serif;
+    color: #1E293B;
+    font-size: 24px;
+    font-weight: 600;
+">
+    Your Ultimate Textbook Solution Hub
+</h2>
+    <img id="library-image"  src = "http://127.0.0.1:5000/static/library.jpeg.jpg"
+     alt="library"
+     width="1000"
+     height="500">
+     <p style="
+    font-family: 'Poppins', sans-serif;
+    color: #1E293B;
+    font-size: 17px;
+    line-height: 1.7;
+">
+    Welcome to StudyShark — your one-stop destination for easy and reliable textbook solutions.
+    Get step-by-step explanations to understand concepts better and solve questions with confidence.
+    Find solutions for your subjects, revise smarter, and save valuable study time.
+    StudyShark is here to make learning simpler, faster, and stress-free.
+</p>
+    <div style="text-align: center;">
+        <h2>Classes</h2>
+        <style>
+    .class-box {
+        border: 2px solid #2563EB;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 15px auto;
+        width: 250px;
+        background-color: #F8FAFC;
+        transition: 0.3s;
+    }
+
+    .class-box:hover {
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        cursor: pointer;
+    }
+</style>
+
+<div style="text-align: center;">
+
+    <h2>Classes</h2>
+
+    {% for class_name, subjects in classes.items() %}
+
+        <div class="class-box">
+
+            <h2>{{ class_name }}</h2>
+
+            {% for subject in subjects %}
+
+                <a href="{{ url_for('subject', subject_name=subject) }}" target="_blank">
+                    <div class="subject">
+                        <h3>{{ subject }}</h3>
+                    </div>
+                </a>
+
+            {% endfor %}
+
+    
+
+    {% endfor %}
+
+</div>
+        <button class="btn btn-primary" onclick="showEmail()">
+    Contact Us
+</button>
+
+<script>
+    function showEmail() {
+        alert("Contact us at: anonymouspeople499@gmail.com");
+    }
+</script>
+</body>
+</html>

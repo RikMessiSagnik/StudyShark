@@ -1,0 +1,50 @@
+<style>
+    .chapter-container {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 20px;
+    }
+
+    .chapter-card {
+        min-width: 250px;
+        border: 2px solid #2563EB;
+        border-radius: 15px;
+        background-color: white;
+        padding: 15px;
+        text-align: center;
+        flex-shrink: 0;
+    }
+
+    .chapter-card img {
+        width: 220px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .chapter-card h3 {
+        color: #2563EB;
+    }
+</style>
+
+<h1>StudyShark 🦈</h1>
+
+<h2>Class 12 {{ subject }}</h2>
+
+<div class="chapter-container">
+
+   {% for chapter in chapters %}
+
+<div class="chapter-card">
+
+    <img src="{{ url_for('static', filename='images/' + chapter.image) }}"
+     alt="{{ chapter.name }}"
+     onclick="openImage(this.src)">
+    <h3>{{ chapter.name }}</h3>
+
+</div>
+
+{% endfor %}
+
+</div>
